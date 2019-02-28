@@ -1,30 +1,78 @@
-Webiik Components
-=================
-Webiik components for lean web development with minimal dependencies. Use them standalone or within Webiik Framework. 
+<p align="left">
+<img src="https://img.shields.io/packagist/l/webiik/webiik.svg"/>
+<img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg"/>
+</p>
 
-Available Components
---------------------
-* [App](./src/Webiik/App/README.md)
-* [Arr](./src/Webiik/Arr/README.md)
-* [Container](./src/Webiik/Container/README.md)
-* [Cookie](./src/Webiik/Cookie/README.md)
-* [Csrf](./src/Webiik/Csrf/README.md)
-* [CurlHttpClient](./src/Webiik/CurlHttpClient/README.md)
-* [Data](./src/Webiik/Data/README.md)
-* [Error](./src/Webiik/Error/README.md)
-* [Flash](./src/Webiik/Flash/README.md)
-* [Log](./src/Webiik/Log/README.md)
-* [Login](./src/Webiik/Login/README.md)
-* [Mail](./src/Webiik/Mail/README.md)
-* [Middleware](./src/Webiik/Middleware/README.md)
-* [OAuth1Client](./src/Webiik/OAuth1Client/README.md)
-* [OAuth2Client](./src/Webiik/OAuth2Client/README.md)
-* [Router](./src/Webiik/Router/README.md)
-* [Session](./src/Webiik/Session/README.md)
-* [Token](./src/Webiik/Token/README.md)
-* [Translation](./src/Webiik/Translation/README.md)
-* [Validator](./src/Webiik/Validator/README.md)
-* [View](./src/Webiik/View/README.md)
+Arr
+===
+The Arr provides dot notation for PHP arrays.
+
+Installation
+------------
+```bash
+composer require webiik/arr
+```
+
+Example
+-------
+```php
+$array = [];
+$arr = new \Webiik\Arr\Arr();
+$arr->set('dot.notation.key', ['key' => 'val'], $array);
+```
+
+Adding
+------
+### set
+```php
+set(string $key, $val, array &$array): void
+```
+**set()** sets value **$val** to **$array** under (dot notation) **$key**.
+```php
+$arr->set('dot.notation.key', ['key' => 'val'], $array);
+```
+
+### add
+```php
+add(string $key, $val, array &$array): void
+```
+**add()** ads value **$val** to **$array** under (dot notation) **$key**.
+```php
+$arr->add('dot.notation.key', 'val', $array);
+```
+
+Check
+-----
+### isIn
+```php
+isIn(string $key, array $array): bool
+```
+**isIn()** determines if **$key** is set in array and if its value is not **NULL**.
+```php
+$arr->isIn('dot.notation.key', $array)
+```
+
+Getting
+-------
+### get
+```php
+get(string $key, array $array)
+```
+**get()** gets value from **$array** by (dot notation) **$key**.
+```php
+$arr->get('dot.notation.key', $array)
+```
+
+Deletion
+--------
+### delete
+```php
+delete(string $key, array &$array): void
+```
+**delete()** removes value from **$array** by (dot notation) **$key**.
+```php
+$arr->delete('dot.notation.test', $array);
+```
 
 Resources
 ---------
